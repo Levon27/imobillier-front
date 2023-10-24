@@ -1,16 +1,29 @@
+import { useState } from "react"
 import { LoginService } from "../services/LoginService"
+import { Utils } from "../services/Utils"
 import Input from "./Input"
 
 const Login = () => {
-  var email = ''
-  var password = ''
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    if (!Utils.isEmailValid(email)) {
+      setEmailError('Please enter a valid email address')
+      return
+    }
+
     LoginService.login(email, password)
-      .then(() => alert('Success'))
-      .catch(() => alert('Error'))
+      .then(() => {
+        setEmailError('')
+        setPassword('')
+        alert('Success')
+      })
+      .catch((error) => setPasswordError(error))
   }
 
   return (
@@ -19,13 +32,14 @@ const Login = () => {
         <Input
           label="E-mail"
           type="text"
-          error=""
-          onChange={(event) => email = event.target.value}
+          error={emailError}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <Input
           label="Password"
           type="password"
-          onChange={(event) => password = event.target.value}
+          error={passwordError}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <button className="w-100 row align-items-center" onClick={(e) => onSubmit(e)}>
           <span className="text-center">Login</span>
