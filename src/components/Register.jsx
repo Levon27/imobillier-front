@@ -72,7 +72,7 @@ const Register = () => {
       return;
     }
 
-    LoginService.register(name, 18, email, password)
+    LoginService.register(name, email, password)
     .then((res) => {
       if (res.status >= 400) {
         alert('Please review your information')

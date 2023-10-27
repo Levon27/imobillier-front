@@ -17,11 +17,11 @@ export const LoginService = {
         resolve(await response.json());
     })
   },
-  register: function (name, age, email, password) {
+  register: function (name, email, password) {
     return fetch('http://localhost:5000/api/User', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({ name, age, email, password })
+      body: JSON.stringify({ name, email, password })
     });
   }
 }
