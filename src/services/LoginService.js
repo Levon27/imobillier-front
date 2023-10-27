@@ -11,29 +11,17 @@ export const LoginService = {
         if (response.status === 401)
           reject('Wrong password or e-mail')
         else
-         reject('Something went wrong, try again')
-      }    
+          reject('Something went wrong, try again')
+      }
       else
         resolve(await response.json());
     })
   },
-  register: function ( name, age, email, password) {
-    return new Promise (async (resolve, reject) => {
-      
-    // if (password.length < 6) {
-    //   setPasswordError('Password must be at least 7 characters long')
-    // }
-
-      const response = await fetch('http://localhost:5000/api/User', {
-        method: 'POST',
-        headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify({ name, age, email, password })
-      });
-
-      if (response.status >= 400)
-        reject('Something went wrong, try again');
-      else
-        resolve(await response.json());
-    })
+  register: function (name, age, email, password) {
+    return fetch('http://localhost:5000/api/User', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ name, age, email, password })
+    });
   }
 }
