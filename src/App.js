@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -14,11 +15,14 @@ function App() {
         }>
         </Route>
 
-        <Route path='/signup' element={<h2> Sign-up </h2>}></Route>
+        <Route path='/signup'
+          element={<Register />}>
+        </Route>
 
-        <Route path='/login' element={
-          <Login></Login>
-        }></Route>
+        <Route path='/login'
+          element={<Login />}>
+        </Route>
+
       </Routes>
     </Router>
   );
