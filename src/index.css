@@ -1,6 +1,7 @@
 .central-card {
   padding: 32px;
   width: 450px;
+  font-family: Roboto,arial,sans-serif;
 }
 
 .central-card > button {
@@ -9,6 +10,8 @@
   font-weight: 600;
   height: 56px;
   background-color: #ff5a00;
+  color: #fff;
+  border: 0;
 }
 
 .error {
@@ -17,7 +20,7 @@
 }
 
 .input {
-  font-family: Roboto,arial,sans-serif;
+  /* font-family: Roboto,arial,sans-serif; */
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -31,4 +34,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.explanation {
+  font-size: 16px;
+  color: rgba(0,0,0,.54);
+}
+
+.form-link {
+  color: #ff5a00;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
 }

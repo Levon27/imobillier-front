@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Utils } from "../services/Utils"
 import Input from './Input'
 import { LoginService } from '../services/LoginService'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
   const [name, setName] = useState('')
@@ -112,9 +113,13 @@ const Register = () => {
           onChange={(e) => setPswdConfirm(e.target.value)}
         />
 
-        <button className="w-100 row align-items-center" onClick={(e) => onSubmit(e)}>
+        <button className="w-100 row align-items-center mb-4" onClick={(e) => onSubmit(e)}>
           <span className="text-center">Sign-up</span>
         </button>
+
+        <div className="row align-items-center text-center">
+          <span className="explanation">Already have an account?</span> <Link className="form-link" to='/login'>Login here</Link>
+        </div>
       </form>
     </div>
   )

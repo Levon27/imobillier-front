@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { LoginService } from "../services/LoginService"
 import { Utils } from "../services/Utils"
+import { Link } from 'react-router-dom'
 import Input from "./Input"
 
 const Login = () => {
@@ -41,9 +42,13 @@ const Login = () => {
           error={passwordError}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <button className="w-100 row align-items-center" onClick={(e) => onSubmit(e)}>
+        <button className="w-100 row align-items-center mb-4" onClick={(e) => onSubmit(e)}>
           <span className="text-center">Login</span>
         </button>
+
+        <div className="row align-items-center text-center">
+          <span className="explanation">Do not have an account?</span> <Link className="form-link" to='/signup'>Sign-up here</Link>
+        </div>
       </form>
     </div>
   )
